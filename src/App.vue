@@ -102,7 +102,7 @@
     </div>
 
     <footer>
-      <p class="footer__info">This unofficial fan resource is created and maintained by <a href="http://gregorterrill.com">Gregor Terrill</a>.<br>Please <a href="mailto:heygregor@gmail.com">email</a> or <a href="https://twitter.com/GregorTerrill">tweet</a> me with any feedback, corrections, or suggestions.<p>
+      <p class="footer__info">This unofficial fan resource is created and maintained by <a href="http://gregorterrill.com">Gregor Terrill</a>.<br>You can find the code for this project and submit bug reports on <a href="https://github.com/gregorterrill/levy-ar-lab">GitHub</a>.<br>You can also <a href="mailto:heygregor@gmail.com">email</a> or <a href="https://twitter.com/GregorTerrill">tweet</a> me with any feedback, corrections, or suggestions.<p>
       <p class="footer__disclaimer">Netrunner is a TM of R. Talsorian Games, Inc. Android is TM &amp; ©2018 Fantasy Flight Games. All rights reserved. Netrunner is licensed by Wizards of the Coast LLC. ©2018 Wizards.</p>
       <p class="footer__disclaimer">This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games, R. Talsorian Games, Inc., or Wizards of the Coast LLC.</p>
     </footer>
