@@ -4,12 +4,66 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="shortcut icon" href="<%= webpackConfig.output.publicPath %>favicon.ico">
-    <title>netrunner-legality</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= webpackConfig.output.publicPath %>apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= webpackConfig.output.publicPath %>favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= webpackConfig.output.publicPath %>favicon-16x16.png">
+    <link rel="manifest" href="<%= webpackConfig.output.publicPath %>site.webmanifest">
+    <link rel="mask-icon" href="<%= webpackConfig.output.publicPath %>safari-pinned-tab.svg" color="#4b4a98">
+    <meta name="msapplication-TileColor" content="#4b4a98">
+    <meta name="theme-color" content="#4b4a98">
+
+    <!-- Basic meta -->
+    <title>Levy AR Lab: Netrunner Legality</title>
+    <meta name="keywords" content="netrunner,lcg,card,rotation,ffg,fantasy flight games,living card game" />
+    <meta name="description" content="Unofficial product legality information for Android: Netrunner." />
+    <link rel="canonical" href="http://levyarlab.com" />
+
+    <!-- Dublin Core basic info -->
+    <meta name="dcterms.Identifier" content="http://levyarlab.com" />
+    <meta name="dcterms.Format" content="text/html" />
+    <meta name="dcterms.Language" content="en" />
+    <meta name="dcterms.Type" content="text/html" />
+    <meta name="dcterms.Coverage" content="http://levyarlab.com" />
+    <meta name="dcterms.Title" content="Levy AR Lab: Netrunner Legality" />
+    <meta name="dcterms.Creator" content="Gregor Terrill" />
+    <meta name="dcterms.Subject" content="netrunner,lcg,card,rotation,ffg,fantasy flight games,living card game" />
+    <meta name="dcterms.Contributor" content="Gregor Terrill" />
+    <meta name="dcterms.Date" content="2018-03-22" />
+    <meta name="dcterms.Description" content="Unofficial product legality information for Android: Netrunner." />
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_ca" />
+    <meta property="og:url" content="http://levyarlab.com" />
+    <meta property="og:title" content="Levy AR Lab: Netrunner Legality" />
+    <meta property="og:description" content="Unofficial product legality information for Android: Netrunner." />
+    <meta property="og:image" content="<%= webpackConfig.output.publicPath %>social-card.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="399" />
+    <meta property="og:image:height" content="344" />
+    <meta property="og:site_name" content="Levy AR Lab" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@GregorTerrill" />
+    <meta name="twitter:title" content="Levy AR Lab: Netrunner Legality" />
+    <meta name="twitter:description" content="Unofficial product legality information for Android: Netrunner." />
+    <meta name="twitter:image" content="<%= webpackConfig.output.publicPath %>social-card.jpg" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116261174-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-116261174-1');
+    </script>
+
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but netrunner-legality doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but Levy AR Lab doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
