@@ -4,7 +4,7 @@
     <header>
       <h1>Levy AR Lab</h1>
       <p class="subtitle">Android: Netrunner Product Legality</p>
-      <p class="last-updated">Updated 2018-03-25</p>
+      <p class="last-updated">Updated 2018-04-21</p>
 
       <Faq></Faq>
 
@@ -58,7 +58,7 @@
           <div class="filters__filter">
             <h3>Current Legality</h3>
             <ul class="filters__type">
-              <li v-for="type in store.legalityTypes" v-show="!(type.value == 'limited' && store.selectedFormat == 'standard')">
+              <li v-for="type in store.legalityTypes" v-show="!(type.value == 'limited' && store.selectedFormat != 'cache')">
                 <input type="checkbox" :id="type.value" :value="type.value" v-model="store.selectedLegality">
                 <label :for="type.value">{{ type.name }}</label>
               </li>
@@ -128,7 +128,7 @@ export default {
       store,
     }
   },
-  mounted() {
+  created() {
     const vm = this;
 
     //do initial rotation and legality checks on all the products
@@ -136,29 +136,42 @@ export default {
       let releaseDate = new Date(product.released);
       let rotationDate = new Date(store.rotations[product.rotation].date);
       let now = new Date();
-      let legality = 'legal';
-      let crLegality = 'illegal';
+
+      let legality = {
+        'standard': 'legal',
+        'cache': 'illegal',
+        'modded': 'illegal'
+      };
 
       //check legality for standard
       if (product.rotation != 0 && (rotationDate < now)) {
-        legality = 'illegal';
+        legality['standard'] = 'illegal';
       }
       if (now < releaseDate || product.released == false) {
-        legality = 'unreleased';
+        legality['standard'] = 'unreleased';
       }
-      vm.$set(product, 'legality', legality);
 
       //check legality for cache refresh
       if (store.cacheRefreshLegal.includes(product.nrdb)) {
-        crLegality = 'legal';
+        legality['cache'] = 'legal';
       }
       if (product.type == 'deluxe') {
-        crLegality = 'limited';
+        legality['cache'] = 'limited';
       }
       if (now < releaseDate || product.released == false) {
-        crLegality = 'unreleased';
+        legality['cache'] = 'unreleased';
       }
-      vm.$set(product, 'crLegality', crLegality);
+
+      //check legality for modded
+      if (store.moddedLegal.includes(product.nrdb)) {
+        legality['modded'] = 'legal';
+      }
+      if (now < releaseDate || product.released == false) {
+        legality['modded'] = 'unreleased';
+      }
+
+      //set legality
+      vm.$set(product, 'legality', legality);
 
       return product;
     });
@@ -169,59 +182,26 @@ export default {
 
       let newSets = {};
 
-      if (store.selectedSort == 'rotation') {
-       
-        newSets = store.sets.reduce(function (groupedSets, set) { 
-
-          if (!store.selectedLegality.includes(set.legality) || !store.selectedProducts.includes(set.type)) {
-            return groupedSets;
-          }
-
-          if (!groupedSets[set.rotation]) {
-            groupedSets[set.rotation] = [];
-          }
-          groupedSets[set.rotation].push(set);
-          return groupedSets;
-        }, {});
-      
-      } else if (store.selectedSort == 'legality') {
-
-        if (store.selectedFormat == 'cache') {
-          newSets = store.sets.reduce(function (groupedSets, set) { 
-
-            if (!store.selectedLegality.includes(set.crLegality) || !store.selectedProducts.includes(set.type)) {
-              return groupedSets;
-            }
-
-            if (!groupedSets[set.crLegality]) {
-              groupedSets[set.crLegality] = [];
-            }
-            groupedSets[set.crLegality].push(set);
-            return groupedSets;
-          }, {});
-
-        } else {
-
-          newSets = store.sets.reduce(function (groupedSets, set) { 
-
-            if (!store.selectedLegality.includes(set.legality) || !store.selectedProducts.includes(set.type)) {
-              return groupedSets;
-            }
-
-            if (!groupedSets[set.legality]) {
-              groupedSets[set.legality] = [];
-            }
-            groupedSets[set.legality].push(set);
-            return groupedSets;
-          }, {});
-
-        }
-      
-      } else {
-
-        newSets = store.sets;
-
+      if (store.selectedSort == 'release') {
+        return store.sets;
       }
+
+      // sort sets by either rotation or legality
+      newSets = store.sets.reduce(function (groupedSets, set) { 
+
+        let setLegality = set.legality[store.selectedFormat];
+        let sortParam = (store.selectedSort == 'legality') ? setLegality : set.rotation;
+
+        if (!store.selectedLegality.includes(setLegality) || !store.selectedProducts.includes(set.type)) {
+          return groupedSets;
+        }
+
+        if (!groupedSets[sortParam]) {
+          groupedSets[sortParam] = [];
+        }
+        groupedSets[sortParam].push(set);
+        return groupedSets;
+      }, {});
 
       return newSets;
 
@@ -230,7 +210,7 @@ export default {
   methods: {
     checkFormatSort() {
       //make sure you're not seeing an incompatible sort mode
-      if (store.selectedFormat == 'cache' && store.selectedSort == 'rotation') {
+      if (store.selectedFormat != 'standard' && store.selectedSort == 'rotation') {
         store.selectedSort = 'release';
       }
     }

@@ -32,10 +32,7 @@ export default {
       return false;
     },
     selectedFormatLegality() {
-      if (store.selectedFormat == 'cache') {
-        return this.set.crLegality;
-      } 
-      return this.set.legality;
+      return this.set.legality[store.selectedFormat];
     },
     released() {
       return this.set.products[0].released;

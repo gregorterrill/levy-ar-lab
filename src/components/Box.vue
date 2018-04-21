@@ -38,10 +38,7 @@ export default {
       return false;
     },
     selectedFormatLegality() {
-      if (store.selectedFormat == 'cache') {
-        return this.set.crLegality;
-      } 
-      return this.set.legality;
+      return this.set.legality[store.selectedFormat];
     },
     releaseDateText() {
       if (this.set.released) {
@@ -51,7 +48,7 @@ export default {
       }
     },
     rotationDateText() {
-      if (this.set.legality == 'illegal') {
+      if (this.set.legality['standard'] == 'illegal') {
         return 'Rotated: ' + store.rotations[this.set.rotation].date;
       } else if (store.rotations[this.set.rotation].date) {
         if (store.rotations[this.set.rotation].estimate) {
@@ -81,7 +78,7 @@ export default {
 
       if (this.set.nrdb == 'core2') {
         return 'Only one copy of the Revised Core Set may be used in Cache Refresh.';
-      } else if (this.set.crLegality == 'limited') {
+      } else if (this.set.legality['cache'] == 'limited') {
         return 'Cards from only one Deluxe expansion may be used for each of your decks in Cache Refresh. Your Corp and Runner decks may use cards from different Deluxe expansions.';
       }
 

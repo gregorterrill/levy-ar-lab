@@ -44,7 +44,7 @@
 
     <dt tabindex="0" @click="expandFaq(6)" :class="(faqsExpanded.includes(6)) ? 'is-expanded' : ''">What is the Cache Refresh format?</dt>
     <dd :class="(faqsExpanded.includes(6)) ? 'is-expanded' : ''">
-      <p>Cache Refresh is an alternative format introduced by FFG with a smaller card pool. In this format, each deck can include cards from:</p>
+      <p>Cache Refresh is an <em>official</em> alternative format introduced by FFG with a smaller card pool. In this format, each deck can include cards from:</p>
       <ol>
       	<li>1 copy of the Revised Core Set</li>
       	<li>1 copy of the Terminal Directive Campaign Expansion</li>
@@ -53,6 +53,12 @@
       </ol>
 
       <p>The <a :href="store.mwlUrl" target="_blank">Most Wanted List</a> still applies. You can read more about the Cache Refresh format <a href="http://www.cache-refresh.info/" target="_blank">here</a>.</p>
+
+    </dd>
+
+    <dt tabindex="0" @click="expandFaq(7)" :class="(faqsExpanded.includes(7)) ? 'is-expanded' : ''">What is the Modded format?</dt>
+    <dd :class="(faqsExpanded.includes(7)) ? 'is-expanded' : ''">
+      <p>Modded is an <em>unofficial</em> format, popularized by the Australian Netrunner community after the release of the Revised Core Set. This format aims to keep the card pool smaller for new players. It currently consists of the Revised Core and the latest cycle.</p>
 
     </dd>
 

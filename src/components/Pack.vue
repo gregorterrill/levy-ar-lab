@@ -32,7 +32,7 @@ export default {
       let now = new Date();
 
       if (this.product.released && now > releaseDate) {
-        return this.set.legality
+        return this.set.legality[store.selectedFormat]
       } else {
         return 'unreleased';
       }
@@ -52,7 +52,7 @@ export default {
       }
     },
     rotationDateText() {
-      if (this.set.legality == 'illegal') {
+      if (this.set.legality['standard'] == 'illegal') {
         return 'Rotated: ' + store.rotations[this.set.rotation].date;
       } else if (store.rotations[this.set.rotation].date) {
         if (store.rotations[this.set.rotation].estimate) {
