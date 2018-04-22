@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'netrunner';
-  src:  url('fonts/netrunner.eot?cmdd12');
-  src:  url('fonts/netrunner.eot?cmdd12#iefix') format('embedded-opentype'),
-    url('fonts/netrunner.ttf?cmdd12') format('truetype'),
-    url('fonts/netrunner.woff?cmdd12') format('woff'),
-    url('fonts/netrunner.svg?cmdd12#netrunner') format('svg');
+  src:  url('../fonts/netrunner.eot?cmdd12');
+  src:  url('../fonts/netrunner.eot?cmdd12#iefix') format('embedded-opentype'),
+    url('../fonts/netrunner.ttf?cmdd12') format('truetype'),
+    url('../fonts/netrunner.woff?cmdd12') format('woff'),
+    url('../fonts/netrunner.svg?cmdd12#netrunner') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Monkirta Pursuit NC';
-  src:  url('fonts/Monkirta-Pursuit-NC.eot?cmdd12');
-  src:  url('fonts/Monkirta-Pursuit-NC.eot?cmdd12#iefix') format('embedded-opentype'),
-    url('fonts/Monkirta-Pursuit-NC.woff?cmdd12') format('woff'),
-    url('fonts/Monkirta-Pursuit-NC.svg?cmdd12#MonkirtaPursuitNC') format('svg');
+  src:  url('../fonts/Monkirta-Pursuit-NC.eot?cmdd12');
+  src:  url('../fonts/Monkirta-Pursuit-NC.eot?cmdd12#iefix') format('embedded-opentype'),
+    url('../fonts/Monkirta-Pursuit-NC.woff?cmdd12') format('woff'),
+    url('../fonts/Monkirta-Pursuit-NC.svg?cmdd12#MonkirtaPursuitNC') format('svg');
   font-weight: normal;
   font-style: normal;
 }

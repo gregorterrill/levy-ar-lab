@@ -244,7 +244,8 @@
             loader: 'url-loader',
             options: {
               limit: 10000,
-              name: 'fonts/[name].[hash:8].[ext]'
+              name: 'fonts/[name].[hash:8].[ext]',
+              publicPath: '/'
             }
           }
         ]
@@ -672,7 +673,7 @@
       definitions: {
         'process.env': {
           NODE_ENV: '"development"',
-          BASE_URL: '"/"'
+          BASE_URL: '"./"'
         }
       }
     },
@@ -751,7 +752,7 @@
         xhtml: false,
         env: {
           NODE_ENV: 'development',
-          BASE_URL: '/'
+          BASE_URL: './'
         }
       }
     }

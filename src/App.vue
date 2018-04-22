@@ -219,7 +219,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import './assets/netrunner-font.css';
+@import './assets/css/netrunner-font.css';
 html {
   background-color:black;
   margin:0;
