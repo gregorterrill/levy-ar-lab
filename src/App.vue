@@ -4,7 +4,7 @@
     <header>
       <h1>Levy AR Lab</h1>
       <p class="subtitle">Android: Netrunner Product Legality</p>
-      <p class="last-updated">Updated 2018-04-21</p>
+      <p class="last-updated">Updated 2018-05-20</p>
 
       <Faq></Faq>
 

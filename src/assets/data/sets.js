@@ -418,7 +418,7 @@ const sets = [
         "nrdb": "ka",
         "code": "ADN55",
         "name": "Kampala Ascendant",
-        "released": false
+        "released": "2018-05-31"
       }
     ]
   },
