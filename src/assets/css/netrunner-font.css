@@ -41,52 +41,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-abr:before {
-  content: "\e920";
-}
-.icon-subroutine:before {
-  content: "\e900";
-}
-.icon-mu3:before {
-  content: "\e901";
-}
-.icon-mu2:before {
-  content: "\e902";
-}
-.icon-mu1:before {
-  content: "\e903";
-}
-.icon-mu:before {
-  content: "\e904";
-}
-.icon-trash:before {
-  content: "\e905";
-}
-.icon-link-half-top:before {
-  content: "\e906";
-}
-.icon-link-half-bottom:before {
-  content: "\e907";
-}
-.icon-link:before {
-  content: "\e908";
-}
-.icon-click:before {
-  content: "\e909";
-}
-.icon-recurring-credit:before {
-  content: "\e90a";
-}
-.icon-credit:before {
-  content: "\e90b";
-}
 .icon-core:before {
   content: "\e914";
-}
-.icon-core2 {
-  color:black;
-  background-color:white;
-  transform:scale(0.66);
 }
 .icon-core2:before {
   content: "\e914";
@@ -105,9 +61,6 @@
 }
 .icon-lunar:before {
   content: "\e90f";
-}
-.icon-oac {
-  transform:scale(0.85);
 }
 .icon-oac:before {
   content: "\e90e";
@@ -130,47 +83,28 @@
 .icon-td:before {
   content: "\e923";
 }
-.icon-anarch:before {
-  content: "\e91a";
+.icon-core2:before {
+  content: "\e924";
 }
-.icon-criminal:before {
-  content: "\e919";
+.icon-kitara:before {
+  content: "\e925";
 }
-.icon-shaper:before {
-  content: "\e91b";
-}
-.icon-jinteki:before {
-  content: "\e916";
-}
-.icon-haas-bioroid:before {
-  content: "\e918";
-}
-.icon-nbn:before {
-  content: "\e915";
-}
-.icon-weyland-consortium:before {
-  content: "\e917";
-}
-.icon-adam:before {
-  content: "\e91d";
-}
-.icon-apex:before {
-  content: "\e91e";
-}
-.icon-sunny-lebeau:before {
-  content: "\e91c";
+.icon-rar:before {
+  content: "\e926";
 }
 
+/* Levy AR Additions */
+.icon-oac {
+  transform:scale(0.85);
+}
 
-.icon-kitara,
-.icon-rar {
+.icon-unknown {
   color:black;
   font-family:Arial,Helvetica,sans-serif;
   background-color:white;
   transform:scale(0.66);
 }
 
-.icon-kitara:before,
-.icon-rar:before {
+.icon-unknown:before {
   content:"?";
 }
