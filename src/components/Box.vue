@@ -4,13 +4,12 @@
     <a :href="'https://netrunnerdb.com/en/set/' + set.nrdb" target="_blank" class="product__box">
       <img class="product__image" :src="'../img/' + set.code.toLowerCase() + '_main.png'" />
       <span class="product__warning" v-if="set.mwl">{{ set.mwl.length }}</span>
-      <span class="product__warning" v-if="cacheNote">CR</span>
+      <span class="product__warning" v-if="limitedNote">?</span>
       <div class="product__info">
         <h3 class="product__name">{{ set.name }}</h3>
         <span class="product__code">{{ boxType }} ({{ set.code }})</span>
         <span class="product__release">{{ releaseDateText }}</span>
-        <span v-if="store.selectedFormat == 'standard'" class="product__rotate">{{ rotationDateText }}</span>
-        <span v-if="cacheNote" class="product__cache">{{ cacheNote }}</span>
+        <span v-if="limitedNote" class="product__limited">{{ limitedNote }}</span>
         <span v-if="set.mwl" class="product__bans">Banned Cards: <span v-for="ban in set.mwl">{{ ban }}<span class="product__bans-connect">, </span></span></span>
       </div>
     </a>
@@ -47,19 +46,6 @@ export default {
         return 'Unreleased';
       }
     },
-    rotationDateText() {
-      if (this.set.legality['standard'] == 'illegal') {
-        return 'Rotated: ' + store.rotations[this.set.rotation].date;
-      } else if (store.rotations[this.set.rotation].date) {
-        if (store.rotations[this.set.rotation].estimate) {
-          return 'Rotates: ' + store.rotations[this.set.rotation].date + ' (estimated)';
-        } else {
-          return 'Rotates: ' + store.rotations[this.set.rotation].date;
-        }
-      } else {
-        return 'Rotates: Not scheduled to rotate';
-      }
-    },
     boxType() {
       if (this.set.type == 'core') {
         return 'Core Set';
@@ -71,17 +57,11 @@ export default {
         return 'Expansion';
       }
     },
-    cacheNote() {
-      if (store.selectedFormat != 'cache') {
-        return false;
+    limitedNote() {
+      if (this.selectedFormatLegality == 'limited') {
+        let selectedFormat = store.formats.find(function(format) { return format.value == store.selectedFormat; });
+        return selectedFormat['limited'][this.set.nrdb];
       }
-
-      if (this.set.nrdb == 'core2') {
-        return 'Only one copy of the Revised Core Set may be used in Cache Refresh.';
-      } else if (this.set.legality['cache'] == 'limited') {
-        return 'Cards from only one Deluxe expansion may be used for each of your decks in Cache Refresh. Your Corp and Runner decks may use cards from different Deluxe expansions.';
-      }
-
     }
   }
 }

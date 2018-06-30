@@ -3,7 +3,6 @@ const sets = [
     "nrdb": "core",
     "name": "Core Set",
     "type": "core",
-    "rotation": 1,
     "released": "2012-09-06",
     "code": "ADN01"
   },
@@ -12,7 +11,6 @@ const sets = [
     "name": "Genesis",
     "type": "cycle",
     "cycleNum": 1,
-    "rotation": 1,
     "products": [ 
       {
         "nrdb": "wla",
@@ -56,7 +54,6 @@ const sets = [
     "nrdb": "cac",
     "name": "Creation and Control",
     "type": "deluxe",
-    "rotation": 0,
     "released": "2013-07-29",
     "code": "ADN08"
   },
@@ -65,7 +62,6 @@ const sets = [
     "name": "Spin",
     "type": "cycle",
     "cycleNum": 2,
-    "rotation": 1,
     "products": [ 
       {
         "nrdb": "om",
@@ -109,7 +105,6 @@ const sets = [
     "nrdb": "hap",
     "name": "Honor and Profit",
     "type": "deluxe",
-    "rotation": 0,
     "released": "2014-05-02",
     "code": "ADN15"
   },
@@ -118,7 +113,6 @@ const sets = [
     "name": "Lunar",
     "type": "cycle",
     "cycleNum": 3,
-    "rotation": 2,
     "products": [ 
       {
         "nrdb": "up",
@@ -162,7 +156,6 @@ const sets = [
     "nrdb": "oac",
     "name": "Order and Chaos",
     "type": "deluxe",
-    "rotation": 0,
     "released": "2015-01-28",
     "code": "ADN22"
   },
@@ -171,7 +164,6 @@ const sets = [
     "name": "SanSan",
     "type": "cycle",
     "cycleNum": 4,
-    "rotation": 2,
     "products": [ 
       {
         "nrdb": "val",
@@ -216,7 +208,6 @@ const sets = [
     "nrdb": "dad",
     "name": "Data and Destiny",
     "type": "deluxe",
-    "rotation": 0,
     "released": "2015-10-29",
     "code": "ADN29"
   },
@@ -225,7 +216,6 @@ const sets = [
     "name": "Mumbad",
     "type": "cycle",
     "cycleNum": 5,
-    "rotation": 3,
     "products": [ 
       {
         "nrdb": "kg",
@@ -271,7 +261,6 @@ const sets = [
     "name": "Flashpoint",
     "type": "cycle",
     "cycleNum": 6,
-    "rotation": 3,
     "products": [ 
       {
         "nrdb": "23s",
@@ -318,7 +307,6 @@ const sets = [
     "nrdb": "td",
     "name": "Terminal Directive",
     "type": "campaign",
-    "rotation": 0,
     "released": "2017-04-27",
     "code": "ADN42"
   },
@@ -327,7 +315,6 @@ const sets = [
     "name": "Red Sands",
     "type": "cycle",
     "cycleNum": 7,
-    "rotation": 4,
     "products": [ 
       {
         "nrdb": "dc",
@@ -373,7 +360,6 @@ const sets = [
     "nrdb": "core2",
     "name": "Revised Core Set",
     "type": "core",
-    "rotation": 0,
     "released": "2017-12-14",
     "code": "ADN49"
   },
@@ -382,7 +368,6 @@ const sets = [
     "name": "Kitara",
     "type": "cycle",
     "cycleNum": 8,
-    "rotation": 4,
     "products": [ 
       {
         "nrdb": "ss",
@@ -426,8 +411,7 @@ const sets = [
     "nrdb": "rar",
     "name": "Reign and Reverie",
     "type": "deluxe",
-    "rotation": 0,
-    "released": false,
+    "released": "2018-06-28",
     "code": "ADN56"
   },
 ]

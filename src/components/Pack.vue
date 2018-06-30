@@ -6,7 +6,6 @@
       <h3 class="product__name">{{ product.name }}</h3>
       <span class="product__code">Data Pack ({{ product.code }})</span>
       <span class="product__release">{{ releaseDateText }}</span>
-      <span v-if="store.selectedFormat == 'standard'" class="product__rotate">{{ rotationDateText }}</span>
       <span v-if="product.mwl" class="product__bans">Banned Cards: <span v-for="ban in product.mwl">{{ ban }}<span class="product__bans-connect">, </span></span></span>
     </div>
   </a>
@@ -49,19 +48,6 @@ export default {
         }
       } else {
         return 'Unreleased';
-      }
-    },
-    rotationDateText() {
-      if (this.set.legality['standard'] == 'illegal') {
-        return 'Rotated: ' + store.rotations[this.set.rotation].date;
-      } else if (store.rotations[this.set.rotation].date) {
-        if (store.rotations[this.set.rotation].estimate) {
-          return 'Rotates: ' + store.rotations[this.set.rotation].date + ' (estimated)';
-        } else {
-          return 'Rotates: ' + store.rotations[this.set.rotation].date;
-        }
-      } else {
-        return 'Rotates: Not scheduled to rotate';
       }
     }
   }

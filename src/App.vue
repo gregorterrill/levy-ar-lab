@@ -4,9 +4,19 @@
     <header>
       <h1>Levy AR Lab</h1>
       <p class="subtitle">Android: Netrunner Product Legality</p>
-      <p class="last-updated">Updated 2018-05-20</p>
-
+      <p class="last-updated">Updated 2018-06-29</p>
+      
+      <div class="farewell">
+        <img class="farewell__image" :src="'../img/always-be-running.jpg'" alt="Always Be Running" />
+        <div class="farewell__text">
+          <h2>RE: Recent Events</h2>
+          <p>On June 8, 2018, FFG <a href="https://www.fantasyflightgames.com/en/news/2018/6/8/jacking-out/" target="_blank">announced</a> it had lost the Netrunner license and that official support for the game would be coming to an end. The original purpose of this site was to provide a visual guide to Netrunner's rotation schedule, but since those future rotations won't be happening, that's not overly useful anymore. Rotation information has been removed from the site and going forward, the focus will be on listing legality info for any final official formats and ongoing unofficial formats. If you have a format you'd like to be featured here, <a href="mailto:heygregor@gmail.com" target="_blank">get in touch</a>!</p>
+        </div>
+      </div>
+      
+      <!--
       <Faq></Faq>
+    -->
 
     </header>
 
@@ -17,30 +27,21 @@
 
         <div class="filters__inner">
 
-          <div class="filters__filter">
-            <h3>Format</h3>
-            <ul class="filters__type">
-              <li v-for="format in store.formats">
-                <input type="radio" :id="format.value" :value="format.value" v-model="store.selectedFormat" v-on:change="checkFormatSort">
-                <label :for="format.value">{{ format.name }}</label>
-              </li>
-            </ul>
-          </div>
+          <div class="filters__filter filters__filter--wide">
+            <h3><label for="format">Format</label></h3>
+            <select id="format" name="format" class="filters__select" v-on:change="checkFormatSort" v-model="store.selectedFormat">
+              <option v-for="format in store.formats" :value="format.value" :selected="store.selectedFormat == format.value">{{ format.name }}</option>
+            </select>
 
-          <div class="filters__filter">
             <h3>Sort By</h3>
             <ul class="filters__type">
               <li>
                 <input type="radio" id="release" value="release" v-model="store.selectedSort">
                 <label for="release">Release Date</label>
               </li>
-              <li v-if="store.selectedFormat == 'standard'">
-                <input type="radio" id="rotation" value="rotation" v-model="store.selectedSort">
-                <label for="rotation">Rotation Date</label>
-              </li>
               <li>
                 <input type="radio" id="legality" value="legality" v-model="store.selectedSort">
-                <label for="legality">Current Legality</label>
+                <label for="legality">Legality</label>
               </li>
             </ul>
           </div>
@@ -58,7 +59,7 @@
           <div class="filters__filter">
             <h3>Current Legality</h3>
             <ul class="filters__type">
-              <li v-for="type in store.legalityTypes" v-show="!(type.value == 'limited' && store.selectedFormat != 'cache')">
+              <li v-for="type in store.legalityTypes"> 
                 <input type="checkbox" :id="type.value" :value="type.value" v-model="store.selectedLegality">
                 <label :for="type.value">{{ type.name }}</label>
               </li>
@@ -69,25 +70,15 @@
 
       </div>
 
-      <div v-if="store.selectedLegality.length == 0 || store.selectedProducts.length == 0">
-        <h2>No products to show. Adjust your filters.</h2>
+      <div v-if="formatInfo && formatInfo != ''" class="format-info">
+        <h2>Format Details</h2>
+        <div v-html="formatInfo"></div>
       </div>
 
       <div v-if="store.selectedSort == 'release'" class="sets">
         <Cycle v-for="set in store.sets" :key="set.nrdb" v-if="set.type == 'cycle'" :set="set"></Cycle>
         <Box v-else :key="set.nrdb" :set="set"></Box>
       </div>
-
-      <template v-else-if="store.selectedSort == 'rotation'">
-        <div v-for="rotation in store.rotations" class="set-group" v-if="sortedSets[rotation.number]">
-          <h2>{{ rotation.name }}<span v-if="rotation.date">{{ rotation.date }}<span v-if="rotation.estimate"> (estimated)</span></span></h2>
-          <p v-if="rotation.notes" v-html="rotation.notes" class="set-group__notes"></p>
-          <div class="sets sets--sorted">
-            <Cycle v-for="set in sortedSets[rotation.number]" :key="set.nrdb" v-if="set.type == 'cycle'" :set="set"></Cycle>
-            <Box v-else :key="set.nrdb" :set="set"></Box>
-          </div>
-        </div>
-      </template>
 
       <template v-else-if="store.selectedSort == 'legality'">
         <div v-for="legality in store.legalityTypes" class="set-group" v-if="sortedSets[legality.value]">
@@ -102,7 +93,7 @@
     </div>
 
     <footer>
-      <p class="footer__info">This unofficial fan resource is created and maintained by <a href="http://gregorterrill.com">Gregor Terrill</a>.<br>You can find the code for this project and submit bug reports on <a href="https://github.com/gregorterrill/levy-ar-lab">GitHub</a>.<br>You can also <a href="mailto:heygregor@gmail.com">email</a> or <a href="https://twitter.com/GregorTerrill">tweet</a> me with any feedback, corrections, or suggestions.<p>
+      <p class="footer__info">This unofficial fan resource is created and maintained by <a href="http://gregorterrill.com">Gregor Terrill</a>.<br>You can find the code for this project and submit bug reports on <a href="https://github.com/gregorterrill/levy-ar-lab">GitHub</a>.<br>You can also <a href="mailto:heygregor@gmail.com" target="_blank">email</a> or <a href="https://twitter.com/GregorTerrill">tweet</a> me with any feedback, corrections, or suggestions.<p>
       <p class="footer__disclaimer">Netrunner is a TM of R. Talsorian Games, Inc. Android is TM &amp; ©2018 Fantasy Flight Games. All rights reserved. Netrunner is licensed by Wizards of the Coast LLC. ©2018 Wizards.</p>
       <p class="footer__disclaimer">This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games, R. Talsorian Games, Inc., or Wizards of the Coast LLC.</p>
     </footer>
@@ -131,44 +122,28 @@ export default {
   created() {
     const vm = this;
 
-    //do initial rotation and legality checks on all the products
+    //do initial legality checks on all the products
     store.sets.map(function(product) {
       let releaseDate = new Date(product.released);
-      let rotationDate = new Date(store.rotations[product.rotation].date);
       let now = new Date();
+      let legality = [];
 
-      let legality = {
-        'standard': 'legal',
-        'cache': 'illegal',
-        'modded': 'illegal'
-      };
+      //loop through each format and get legality
+      store.formats.forEach(function(format) {
+        
+        if (now < releaseDate || product.released == false) {
+           legality[format.value] = 'unreleased';
+        }
 
-      //check legality for standard
-      if (product.rotation != 0 && (rotationDate < now)) {
-        legality['standard'] = 'illegal';
-      }
-      if (now < releaseDate || product.released == false) {
-        legality['standard'] = 'unreleased';
-      }
+        if (format.legal.includes(product.nrdb)) {
+          legality[format.value] = 'legal';
+        } else if (format.limited.hasOwnProperty(product.nrdb)) {
+          legality[format.value] = 'limited';
+        } else {
+          legality[format.value] = 'illegal';
+        }
 
-      //check legality for cache refresh
-      if (store.cacheRefreshLegal.includes(product.nrdb)) {
-        legality['cache'] = 'legal';
-      }
-      if (product.type == 'deluxe') {
-        legality['cache'] = 'limited';
-      }
-      if (now < releaseDate || product.released == false) {
-        legality['cache'] = 'unreleased';
-      }
-
-      //check legality for modded
-      if (store.moddedLegal.includes(product.nrdb)) {
-        legality['modded'] = 'legal';
-      }
-      if (now < releaseDate || product.released == false) {
-        legality['modded'] = 'unreleased';
-      }
+      });
 
       //set legality
       vm.$set(product, 'legality', legality);
@@ -178,6 +153,14 @@ export default {
 
   },
   computed: {
+    formatInfo() {
+      let selectedFormat = store.formats.find(function(format) {
+        return format.value == store.selectedFormat;
+      });
+
+      return selectedFormat.infoHtml;
+
+    },
     sortedSets() {
 
       let newSets = {};
@@ -186,20 +169,20 @@ export default {
         return store.sets;
       }
 
-      // sort sets by either rotation or legality
-      newSets = store.sets.reduce(function (groupedSets, set) { 
+      // sort sets by legality
+      newSets = store.sets.reduce(function(groupedSets, set) { 
 
         let setLegality = set.legality[store.selectedFormat];
-        let sortParam = (store.selectedSort == 'legality') ? setLegality : set.rotation;
 
         if (!store.selectedLegality.includes(setLegality) || !store.selectedProducts.includes(set.type)) {
           return groupedSets;
         }
 
-        if (!groupedSets[sortParam]) {
-          groupedSets[sortParam] = [];
+        if (!groupedSets[setLegality]) {
+          groupedSets[setLegality] = [];
         }
-        groupedSets[sortParam].push(set);
+        groupedSets[setLegality].push(set);
+
         return groupedSets;
       }, {});
 
@@ -210,9 +193,9 @@ export default {
   methods: {
     checkFormatSort() {
       //make sure you're not seeing an incompatible sort mode
-      if (store.selectedFormat != 'standard' && store.selectedSort == 'rotation') {
-        store.selectedSort = 'release';
-      }
+      //if (store.selectedFormat != 'standard' && store.selectedSort == 'rotation') {
+      //  store.selectedSort = 'release';
+      //}
     }
   }
 }
@@ -220,6 +203,7 @@ export default {
 
 <style lang="scss">
 @import './assets/css/netrunner-font.css';
+
 html {
   background-color:black;
   margin:0;
@@ -263,6 +247,45 @@ p {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
+  overflow-x:hidden;
+}
+
+.farewell {
+  transform-style:preserve-3d;
+  perspective:1000px;
+  margin:0 auto 3rem;
+  max-width:720px;
+  display:grid;
+  padding:1rem 2rem 0;
+  
+  @media screen and (min-width:640px) {
+    grid-template-columns:2fr 3fr;
+    grid-gap:2rem;
+    align-items:center;
+    padding:0;
+  }
+}
+
+.farewell__image {
+  width:220px;
+  margin:1rem auto 2rem;
+  height:auto;
+  transform:rotateY(20deg);
+  border-radius:0.875rem;
+
+  @media screen and (min-width:640px) {
+    width:100%;
+    transform:rotateY(33deg);
+    margin:0;
+  }
+}
+
+.farewell__text {
+  text-align:center;
+
+  @media screen and (min-width:640px) {
+    text-align:left;
+  }
 }
 
 .filters {
@@ -289,12 +312,29 @@ p {
 
 }
 
+.format-info {
+  margin:auto;
+  max-width:720px;
+  text-align:left;
+}
+
 .filters__inner {
   display:grid;
 
   @media screen and (min-width:640px) {
-    grid-template-columns:140px 1fr 1fr 1fr;
+    grid-template-columns:300px 1fr 1fr;
   }
+}
+
+.filters__filter--wide {
+  padding-right:2rem;
+  select { width:100%; font-size:0.9375rem; background:transparent; color:#FFF; }
+  option { background:transparent; color:#FFF;}
+  .filters__type li { display:inline-block; padding-right:1rem; }
+}
+
+#format {
+  margin-bottom:0.5rem;
 }
 
 .filters__type {
@@ -368,14 +408,14 @@ label[for="limited"]::after { background: #8f9812; }
   display:grid;
   align-content:center;
   position:relative;
-  padding:2rem 0.5rem;
+  padding:0 0.5rem 2rem 0.5rem;
   flex-grow:1;
   flex-shrink:0;
   flex-basis:20rem;
   margin:0.5rem;
 
   @media screen and (min-width:640px) {
-    padding:2rem;
+    padding:0 2rem 2rem;
   }
 }
 
@@ -396,6 +436,9 @@ label[for="limited"]::after { background: #8f9812; }
 }
 
 .product__name {
+  cursor:pointer;
+  padding:2rem 0 1.25rem;
+  margin-bottom:0;
   .icon { margin-left:0.5rem; vertical-align:top; }
   a { text-decoration:none;}
 }
@@ -411,6 +454,16 @@ label[for="limited"]::after { background: #8f9812; }
   z-index:99;
   left:50%;
   margin-left:-10rem;
+
+  .product__name {
+    padding:0;
+  }
+
+  &:hover,&:focus {
+    cursor:pointer;
+    opacity:1;
+    visibility:visible;
+  }
 
   &::before {
     content:"";
@@ -459,6 +512,24 @@ label[for="limited"]::after { background: #8f9812; }
 
   @media screen and (min-width:920px) {
     flex-basis:48rem;
+  }
+
+  > .product__info {
+    top:5rem;
+  }
+
+  > .product__warning {
+    top:0.5rem;
+    margin-right: -0.625rem;
+  }
+
+  .product__name {
+    &:hover,&:focus {
+      ~ .product__info {
+        opacity:1;
+        visibility:visible;
+      }
+    }
   }
 }
 
@@ -513,7 +584,7 @@ label[for="limited"]::after { background: #8f9812; }
   margin-right:0;
 }
 
-.product__cache,
+.product__limited,
 .product__bans {
   margin-top:0.25rem;
   font-size:0.75rem !important;
@@ -522,8 +593,6 @@ label[for="limited"]::after { background: #8f9812; }
 }
 
 .product__bans > span:last-child .product__bans-connect { display:none; }
-
-
 
 .product__box,
 .product__pack {
@@ -535,6 +604,22 @@ label[for="limited"]::after { background: #8f9812; }
     }
     .product__image {
       transform:scale(1.1);
+    }
+  }
+}
+
+.product--deluxe,
+.product--core,
+.product--campaign {
+  .product__name {
+    &:hover,&:focus {
+      + a .product__info {
+        opacity:1;
+        visibility:visible;
+      }
+      + a .product__image {
+        transform:scale(1.1);
+      }
     }
   }
 }
@@ -563,7 +648,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom:1.25rem;
+  margin-bottom:1rem;
   font-size:1.25rem;
 }
 
@@ -588,6 +673,10 @@ header p {
   max-width:50rem;
   margin-left:auto;
   margin-right:auto;
+}
+
+.no-results {
+  margin-top:2rem;
 }
 
 footer {

@@ -15,22 +15,6 @@
       </ol>
     </dd>
 
-    <dt tabindex="0" @click="expandFaq(3)" :class="(faqsExpanded.includes(3)) ? 'is-expanded' : ''">What is rotation?</dt>
-    <dd :class="(faqsExpanded.includes(3)) ? 'is-expanded' : ''">
-      <p>Rotation is a method of keeping the card pool of an expandable game like Netrunner manageable. It aims to help keep the card pool from being too overwhelming when deckbuilding, reduce the number of problematic card interactions that can arise, and lower the barrier-to-entry for new players.</p>
-      <p>The basic idea is that at some planned interval, the oldest sets of cards in the game "rotate out", meaning they are no longer legal for competitive play.</p>
-    </dd>
-
-    <dt tabindex="0" @click="expandFaq(4)" :class="(faqsExpanded.includes(4)) ? 'is-expanded' : ''">How does rotation work in Netrunner?</dt>
-    <dd :class="(faqsExpanded.includes(4)) ? 'is-expanded' : ''">
-      <p>The Revised Core Set and "big box" expansions are at this time considered to be "evergreen," meaning they will never rotate out of competitive play. However, that's not a guarantee. The original Core Set was not originally supposed to rotate out, but did when it was replaced by the Revised Core Set in 2017. While most players agree this was positive for the health of the game, it did contradict FFG's past statements about evergreen products.</p>
-      <p>Cycles, however, do rotate out of competitive play. FFG has previously stated that their intent is to have 5-7 Cycles legal at any time, with the oldest pair of Cycles rotating out when the first pack of what would be the 8th legal Cycle is released.</p>
-    
-      <p>You can read more about rotation in these FFG articles:</p>
-      <p><a href="https://www.fantasyflightgames.com/en/news/2014/11/5/a-new-stage-of-growth/">Original Rotation Announcement (2014-11-05)</a></p>
-      <p><a href="https://www.fantasyflightgames.com/en/news/2017/9/11/system-refresh/">First Rotation / Revised Core Announcement (2017-09-11)</a></p>
-    </dd>
-
     <dt tabindex="0" @click="expandFaq(5)" :class="(faqsExpanded.includes(5)) ? 'is-expanded' : ''">How do I know if a specific Netrunner card is legal to play?</dt>
     <dd :class="(faqsExpanded.includes(5)) ? 'is-expanded' : ''">
       <p>There are a few questions to ask yourself to determine if a card is legal to include in your deck (beyond the basic deckbuilding rules concerning faction and influence):</p>
@@ -40,29 +24,7 @@
         <li>Are there any special rules for the tournament or event you're playing in that would disallow the card? This really only applies to community-run events, not official Organized Play events (Game Night Kits, Store Championships, Regionals, Nationals, Worlds, etc).</li>
       </ol>
       <p>Most online deckbuilders like <a href="https://netrunnerdb.com" target="_blank">NetrunnerDB</a> will alert you if your deck is illegal.</p>
-    </dd>
-
-    <dt tabindex="0" @click="expandFaq(6)" :class="(faqsExpanded.includes(6)) ? 'is-expanded' : ''">What is the Cache Refresh format?</dt>
-    <dd :class="(faqsExpanded.includes(6)) ? 'is-expanded' : ''">
-      <p>Cache Refresh is an <em>official</em> alternative format introduced by FFG with a smaller card pool. In this format, each deck can include cards from:</p>
-      <ol>
-      	<li>1 copy of the Revised Core Set</li>
-      	<li>1 copy of the Terminal Directive Campaign Expansion</li>
-      	<li>1 Deluxe Expansion (your Corp/Runner decks can use different Deluxes)</li>
-      	<li>The 2 most recent Cycles (including in-progress Cycles)</li>
-      </ol>
-
-      <p>The <a :href="store.mwlUrl" target="_blank">Most Wanted List</a> still applies. You can read more about the Cache Refresh format <a href="http://www.cache-refresh.info/" target="_blank">here</a>.</p>
-
-    </dd>
-
-    <dt tabindex="0" @click="expandFaq(7)" :class="(faqsExpanded.includes(7)) ? 'is-expanded' : ''">What is the Modded format?</dt>
-    <dd :class="(faqsExpanded.includes(7)) ? 'is-expanded' : ''">
-      <p>Modded is an <em>unofficial</em> format, popularized by the Australian Netrunner community after the release of the Revised Core Set. This format aims to keep the card pool smaller for new players. It currently consists of the Revised Core and the latest cycle.</p>
-
-    </dd>
-
-    
+    </dd>    
   </dl>
 </template>
 
@@ -97,11 +59,16 @@ export default {
   text-align:left;
   max-width:720px;
   margin:auto;
+  padding: 0 2rem;
 
   dl { margin:0; padding:0; }
 
   li {
     margin-bottom:0.5rem;
+  }
+
+  @media screen and (min-width:640px) {
+    padding:0;
   }
 }
 
