@@ -230,7 +230,7 @@ a {
   text-decoration:underline;
 }
 
-p {
+p, li {
   line-height:1.5;
 }
 
@@ -267,6 +267,7 @@ p {
 }
 
 .farewell__image {
+  display:inline-block;
   width:220px;
   margin:1rem auto 2rem;
   height:auto;
@@ -275,12 +276,14 @@ p {
 
   @media screen and (min-width:640px) {
     width:100%;
+    max-width:280px;
     transform:rotateY(33deg);
     margin:0;
   }
 }
 
 .farewell__text {
+  display:inline-block;
   text-align:center;
 
   @media screen and (min-width:640px) {
@@ -329,7 +332,7 @@ p {
 .filters__filter--wide {
   padding-right:2rem;
   select { width:100%; font-size:0.9375rem; background:transparent; color:#FFF; }
-  option { background:transparent; color:#FFF;}
+  option { background:#FFF; color:#000;}
   .filters__type li { display:inline-block; padding-right:1rem; }
 }
 
@@ -534,6 +537,7 @@ label[for="limited"]::after { background: #8f9812; }
 }
 
 .product__pack {
+  display:inline-block;
   margin-bottom:1rem;
 
   .product__image {
