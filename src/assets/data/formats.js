@@ -2,7 +2,7 @@ const formats = [
 	{
 	  'value': 'standard',
 	  'name': 'Standard',
-	  'infoHtml': "<p>Standard is the <em>official</em> format defined by FFG. All products are legal, except the original Core Set and first two cycles (Genesis and Spin), which rotated out of legal play on October 1, 2017.</p>",
+	  'infoHtml': "<p>Standard is the <em>official</em> format defined by FFG. All products are legal, except the original Core Set and first two cycles (Genesis and Spin), which rotated out of legal play on October 1, 2017. A banned and restricted list known as the <a href=\"https://images-cdn.fantasyflightgames.com/filer_public/0e/65/0e65d5d5-0a7d-476f-b7a3-11345d1b27b2/adn-most-wanted-962018.pdf\">Most Wanted List (2.2)</a> is in effect. Affected cards will be highlighted here in red.</p>",
 	  'legal': ['core2','cac','hap','lunar','oac','sansan','dad','mumbad','flashpoint','td','red-sand','kitara','rar'],
 	  'limited': {},
 	}, {

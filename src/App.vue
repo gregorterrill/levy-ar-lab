@@ -4,7 +4,7 @@
     <header>
       <h1>Levy AR Lab</h1>
       <p class="subtitle">Android: Netrunner Product Legality</p>
-      <p class="last-updated">Updated 2018-06-29</p>
+      <p class="last-updated">Last Update: 2018-08-22</p>
       
       <div class="farewell">
         <img class="farewell__image" :src="'../img/always-be-running.jpg'" alt="Always Be Running" />

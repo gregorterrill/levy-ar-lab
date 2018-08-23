@@ -31,7 +31,7 @@ const legalityTypes = [{
 }]
 
 // External Resources
-const mwlUrl = 'https://images-cdn.fantasyflightgames.com/filer_public/ff/4e/ff4e6f89-6874-4c45-9273-6335e2ab3784/adn_mwl_v21compressed.pdf'
+const mwlUrl = 'https://images-cdn.fantasyflightgames.com/filer_public/0e/65/0e65d5d5-0a7d-476f-b7a3-11345d1b27b2/adn-most-wanted-962018.pdf'
 
 // Default Selections
 const selectedFormat = 'standard'

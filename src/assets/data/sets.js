@@ -4,7 +4,8 @@ const sets = [
     "name": "Core Set",
     "type": "core",
     "released": "2012-09-06",
-    "code": "ADN01"
+    "code": "ADN01",
+    "mwlRestricted": ["Aesop's Pawnshop", "Magnum Opus"]
   },
   {
     "nrdb": "genesis",
@@ -55,7 +56,9 @@ const sets = [
     "name": "Creation and Control",
     "type": "deluxe",
     "released": "2013-07-29",
-    "code": "ADN08"
+    "code": "ADN08",
+    "mwlBanned": ["Cerebral Imaging: Infinite Frontiers"],
+    "mwlRestricted": ["Levy AR Lab Access"]
   },
   {
     "nrdb": "spin",
@@ -118,7 +121,8 @@ const sets = [
         "nrdb": "up",
         "code": "ADN16",
         "name": "Upstalk",
-        "released": "2014-07-25"
+        "released": "2014-07-25",
+        "mwlRestricted": ["Mother Goddess"]
       },
       { 
         "nrdb": "tsb",
@@ -188,13 +192,15 @@ const sets = [
         "code": "ADN26",
         "name": "The Underway",
         "released": "2015-07-02",
-        "mwl": ["Faust"]
+        "mwlBanned": ["Faust", "Hyperdriver"],
+        "mwlRestricted": ["Gang Sign"]
       },
       { 
         "nrdb": "oh",
         "code": "ADN27",
         "name": "Old Hollywood",
-        "released": "2015-08-06"
+        "released": "2015-08-06",
+        "mwlRestricted": ["Film Critic"]
       },
       { 
         "nrdb": "uot",
@@ -209,7 +215,9 @@ const sets = [
     "name": "Data and Destiny",
     "type": "deluxe",
     "released": "2015-10-29",
-    "code": "ADN29"
+    "code": "ADN29",
+    "mwlBanned": ["24/7 News Cycle"],
+    "mwlRestricted": ["Employee Strike","Global Food Initiative"]
   },
   {
     "nrdb": "mumbad",
@@ -221,7 +229,9 @@ const sets = [
         "nrdb": "kg",
         "code": "ADN30",
         "name": "Kala Ghoda",
-        "released": "2016-01-29"
+        "released": "2016-01-29",
+        "mwlBanned": ["Museum of History"],
+        "mwlRestricted": ["Mumba Temple"]
       },
       { 
         "nrdb": "bf",
@@ -234,7 +244,8 @@ const sets = [
         "code": "ADN32",
         "name": "Democracy and Dogma",
         "released": "2016-04-01",
-         "mwl": ["Clone Suffrage Movement","Sensie Actors Union"]
+        "mwlBanned": ["Clone Suffrage Movement","Sensie Actors Union"],
+        "mwlRestricted": ["Bio-Ethics Association","Mumbad City Hall"]
       },
       { 
         "nrdb": "si",
@@ -273,13 +284,15 @@ const sets = [
         "code": "ADN37",
         "name": "Blood Money",
         "released": "2016-08-11",
-        "mwl": ["Temüjin Contract"]
+        "mwlBanned": ["Temüjin Contract"],
+        "mwlRestricted": ["Rumor Mill"]
       },
       { 
         "nrdb": "es",
         "code": "ADN38",
         "name": "Escalation",
-        "released": "2016-10-06"
+        "released": "2016-10-06",
+        "mwlRestricted": ["Jinteki: Potential Unleashed"]
       },
       { 
         "nrdb": "in",
@@ -292,14 +305,15 @@ const sets = [
         "code": "ADN40",
         "name": "Martial Law",
         "released": "2016-12-08",
-        "mwl": ["Friends in High Places"]
+        "mwlBanned": ["Friends in High Places"]
       },
       { 
         "nrdb": "qu",
         "code": "ADN41",
         "name": "Quorum",
         "released": "2017-01-12",
-        "mwl": ["Aaron Marrón","Şifr","Violet Level Clearance"]
+        "mwlBanned": ["Aaron Marrón","Şifr","Tapwrm"],
+        "mwlRestricted": ["Violet Level Clearance","Bryan Stinson"]
       }
     ]
   },
@@ -308,7 +322,9 @@ const sets = [
     "name": "Terminal Directive",
     "type": "campaign",
     "released": "2017-04-27",
-    "code": "ADN42"
+    "code": "ADN42",
+    "mwlBanned": ["Estelle Moon"],
+    "mwlRestricted": ["Brain Rewiring","Hunter Seeker","Skorpios Defense Systems: Persuasive Power"]
   },
   {
     "nrdb": "red-sand",
@@ -320,7 +336,8 @@ const sets = [
         "nrdb": "dc",
         "code": "ADN43",
         "name": "Daedalus Complex",
-        "released": "2017-02-23"
+        "released": "2017-02-23",
+        "mwlRestricted": ["Mad Dash"]
       },
       { 
         "nrdb": "so",
@@ -332,27 +349,29 @@ const sets = [
         "nrdb": "eas",
         "code": "ADN45",
         "name": "Earth's Scion",
-        "released": "2017-05-25"
+        "released": "2017-05-25",
+        "mwlRestricted": ["Inversificator"]
       },
       { 
         "nrdb": "baw",
         "code": "ADN46",
         "name": "Blood and Water",
-        "released": "2017-06-22"
+        "released": "2017-06-22",
+        "mwlRestricted": ["Obokata Protocol","Whampoa Reclamation"]
       },
       { 
         "nrdb": "fm",
         "code": "ADN47",
         "name": "Free Mars",
         "released": "2017-07-20",
-        "mwl": ["Bloo Moose"]
+        "mwlBanned": ["Bloo Moose"]
       },
       { 
         "nrdb": "cd",
         "code": "ADN48",
         "name": "Crimson Dust",
         "released": "2017-08-17",
-        "mwl": ["Salvaged Vanadis Armory"]
+        "mwlBanned": ["Salvaged Vanadis Armory"]
       }
     ]
   },
@@ -361,7 +380,8 @@ const sets = [
     "name": "Revised Core Set",
     "type": "core",
     "released": "2017-12-14",
-    "code": "ADN49"
+    "code": "ADN49",
+    "mwlRestricted": ["Aesop's Pawnshop", "Magnum Opus"]
   },
   {
     "nrdb": "kitara",
@@ -403,7 +423,9 @@ const sets = [
         "nrdb": "ka",
         "code": "ADN55",
         "name": "Kampala Ascendant",
-        "released": "2018-05-31"
+        "released": "2018-05-31",
+        "mwlBanned": ["Zer0"],
+        "mwlRestricted": ["Surveyor"]
       }
     ]
   },
